@@ -9,12 +9,6 @@ variable "numInstances" {
   description = "Number of VMs"
 }
 
-variable "sasToken" {
-  type        = string
-  default     = 2
-  description = "SAS Token for state file"
-}
-
 terraform{
   backend "azurerm" {
   resource_group_name  = "AH_SharedServices"
@@ -75,7 +69,7 @@ resource "azurerm_linux_virtual_machine" "vm" {
   network_interface_ids = [element(azurerm_network_interface.vm1nic.*.id, count.index)]
   size                  = "Standard_F2"
   admin_username        = "adminuser"
-  admin_password        = data.azurerm_key_vault_secret.vmadminpassword.value
+  admin_password        = "${data.azurerm_key_vault_secret.vmadminpassword.value}"
   disable_password_authentication  = false
 
   source_image_reference {
