@@ -25,7 +25,7 @@ steps:
       terraformVersion: '0.12.3'
 
   - task: TerraformTaskV2@2
-    name: "Terraform Init"
+    name: "TerraformInit"
     inputs:
       provider: 'azurerm'
       command: 'init'
@@ -37,7 +37,7 @@ steps:
       workingDirectory: '$(System.DefaultWorkingDirectory)/Terraform/MultipleVMs'
 
   - task: TerraformTaskV2@2
-    name: "Terraform Validate"
+    name: "TerraformValidate"
     inputs:
       provider: 'azurerm'
       command: 'validate'
