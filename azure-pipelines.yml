@@ -8,6 +8,11 @@ trigger:
     branches:
         include:
             - main
+pr:
+   branches:
+     include:
+       - branch/*
+    
 pool:
   vmImage: ubuntu-latest
 
