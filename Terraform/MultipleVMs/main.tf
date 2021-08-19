@@ -88,5 +88,6 @@ resource "azurerm_linux_virtual_machine" "vm" {
     environment = "dev"
     department  = "finance"
     product     = "Terraform"
+    test        = "true"
   }
 }
